@@ -1,0 +1,58 @@
+<nb-card>
+
+  <nb-card-header>
+    Registrar ocorrência
+  </nb-card-header>
+
+  <nb-card-body>
+
+    <div class="row">
+      <label for="placa" class="label">Placa</label>
+      <input type="text" nbInput fullWidth placeholder="Placa" id="placa">
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <label for="sentido" class="label">Sentido</label>
+      <input type="text" nbInput fullWidth placeholder="Sentido" id="sentido">
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <label for="placa" class="label">Tipo do veiculo</label>
+      <nb-select fullWidth placeholder="Select Showcase" [(selected)]="selectedItem">
+        <nb-option value="">Selecione</nb-option>
+        <nb-option value="0">Option 0</nb-option>
+        <nb-option value="1">Option 1</nb-option>
+        <nb-option value="2">Option 2</nb-option>
+        <nb-option value="3">Option 3</nb-option>
+        <nb-option value="4">Option 4</nb-option>
+      </nb-select>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <label for="cor" class="label">Cor</label>
+      <nb-select fullWidth placeholder="Select Showcase" [(selected)]="selectedItem">
+        <nb-option value="">Selecione</nb-option>
+        <nb-option value="0">Branco</nb-option>
+        <nb-option value="1">Vermelho</nb-option>
+        <nb-option value="2">Azul</nb-option>
+      </nb-select>
+    </div>
+
+  </nb-card-body>
+
+
+</nb-card>
+
+  <button
+    nbButton
+    fullWidth
+    status="primary"
+    size="large">
+    Concluir
+  </button>
