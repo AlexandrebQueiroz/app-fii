@@ -16,6 +16,11 @@ const routes: Routes = [{
       loadChildren: () => import('./ocorrency/ocorrency.module')
         .then(m => m.OcorrencyModule),
     },
+    {
+      path: 'seachmdfe',
+      loadChildren: () => import('./search/search-routing.module')
+        .then(m => m.SearchRoutingModule),
+    },
   ],
 }];
 

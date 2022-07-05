@@ -3,7 +3,12 @@
 
   <nb-card-body>
     <google-map [center]="position" [zoom]="8" width="100%" height="36.5625rem">
-      <map-marker [position]="position"></map-marker>
+      <map-marker
+        *ngFor="let point of points"
+        [label]="point.label"
+        [position]="point.location"
+        >
+      </map-marker>
     </google-map>
   </nb-card-body>
 

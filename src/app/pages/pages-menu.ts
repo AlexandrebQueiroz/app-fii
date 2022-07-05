@@ -14,13 +14,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/operation/ocorrency',
       },
       {
+        title: 'Consultar MDF-e',
+        link: '/pages/operation/seachmdfe',
+      },
+      {
         title: 'Resultado da fiscalização',
         link: '/pages/layout/infinite-list',
       },
-      {
-        title: 'Consultar MDF-3',
-        link: '/pages/layout/accordion',
-      },
+
       {
         title: 'Consultar CT-3',
         link: '/pages/layout/tabs',
