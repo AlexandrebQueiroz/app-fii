@@ -11,7 +11,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'Ocorrências',
-        link: '/pages/operation/ocorrency',
+        link: '/pages/operation/occurrence',
       },
       {
         title: 'Consultar MDF-e',

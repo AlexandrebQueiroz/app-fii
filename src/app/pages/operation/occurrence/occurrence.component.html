@@ -1,0 +1,65 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate [nbSpinner]="loading">
+
+  <div class="row">
+    <div class="col-md-6 offset-md-2 col-12">
+
+      <nb-card>
+
+        <nb-card-header class="text-center">
+          Registrar ocorrência
+        </nb-card-header>
+
+        <nb-card-body>
+
+          <div class="row form-group">
+            <label for="placa" class="label">Placa</label>
+            <input
+              id="placa"
+              type="text"
+              [status]='getStatus(plate)'
+              formControlName="plate"
+              nbInput
+              class="form-control"
+              fullWidth
+              placeholder="Placa"
+              [ngClass]="{'is-valid': (plate.valid && plate.touched), 'is-invalid': (plate.invalid && plate.touched) }"
+            >
+          </div>
+
+          <div class="valid-feedback">
+            Valido
+          </div>
+
+          <div class="invalid-feedback">
+            Invalido
+          </div>
+
+          <div class="row form-group">
+            <label for="direction" class="label">Sentido</label>
+            <input
+              id="direction"
+              type="text"
+              [status]='getStatus(direction)'
+              formControlName="direction"
+              nbInput
+              class="form-control"
+              fullWidth
+              placeholder="Sentido"
+              [ngClass]="{'is-valid': (direction.valid && direction.touched), 'is-invalid': (direction.invalid && direction.touched) }"
+            >
+          </div>
+
+        </nb-card-body>
+      </nb-card>
+
+      <button
+        nbButton
+        fullWidth
+        status="primary"
+        size="large">
+        Concluir
+      </button>
+
+    </div>
+  </div>
+</form>

@@ -12,9 +12,9 @@ const routes: Routes = [{
         .then(m => m.AlertModule),
     },
     {
-      path: 'ocorrency',
-      loadChildren: () => import('./ocorrency/ocorrency.module')
-        .then(m => m.OcorrencyModule),
+      path: 'occurrence',
+      loadChildren: () => import('./occurrence/occurrence.module')
+        .then(m => m.OccurrenceModule),
     },
     {
       path: 'seachmdfe',
