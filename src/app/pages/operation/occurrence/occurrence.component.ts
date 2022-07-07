@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
 import { OccurrenceService } from './occurrence.service';
 
@@ -17,6 +18,7 @@ export class OccurrenceComponent implements OnInit{
     public fb: FormBuilder,
     public service: OccurrenceService,
     public toastrService: NbToastrService,
+    public router: Router,
     ) {
 
   }
@@ -31,14 +33,16 @@ export class OccurrenceComponent implements OnInit{
     if (this.form.invalid) {
       return;
     }
-
+    this.loading = true;
     this.service.save(this.form.value).subscribe(
       () => {
-        this.toastrService.success('A','B')
+        this.loading = false;
+        this.toastrService.success('Exemplo','Exemplo de mensagem')
+        this.router.navigate([ './pages/operation/alert' ]);
       },
-
       () => {
-        this.toastrService.danger('C','D')
+        this.toastrService.danger('Exemplo','Exemplo de mensagem')
+        this.loading = false;
       },
     );
 
