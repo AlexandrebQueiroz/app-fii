@@ -17,10 +17,17 @@ const routes: Routes = [{
         .then(m => m.OccurrenceModule),
     },
     {
-      path: 'seachmdfe',
-      loadChildren: () => import('./search/search-routing.module')
-        .then(m => m.SearchRoutingModule),
+      path: 'oversight',
+      loadChildren: () => import('./oversight/oversight.module')
+        .then(m => m.OversightModule),
     },
+
+    {
+      path: 'cte',
+      loadChildren: () => import('./cte/cte.module')
+        .then(m => m.CteModule),
+    },
+
   ],
 }];
 

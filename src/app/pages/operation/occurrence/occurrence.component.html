@@ -12,7 +12,7 @@
         <nb-card-body>
 
           <div class="row form-group">
-            <label for="placa" class="label">Placa</label>
+            <label for="placa" class="label">Placa*:</label>
             <input
               id="placa"
               type="text"
@@ -35,7 +35,7 @@
           </div>
 
           <div class="row form-group">
-            <label for="direction" class="label">Sentido</label>
+            <label for="direction" class="label">Sentido*:</label>
             <input
               id="direction"
               type="text"
@@ -47,6 +47,21 @@
               placeholder="Sentido"
               [ngClass]="{'is-valid': (direction.valid && direction.touched), 'is-invalid': (direction.invalid && direction.touched) }"
             >
+          </div>
+
+          <div class="row form-group">
+            <label for="direction" class="label">Tipo de veiculo:</label>
+
+            <input
+              id="vehicle"
+              type="text"
+              [status]='getStatus(vehicle)'
+              formControlName="vehicle"
+              class="form-control"
+              nbInput
+              fullWidth
+              placeholder="Tipo de veiculo"
+              [ngClass]="{'is-valid': (vehicle.valid && vehicle.touched), 'is-invalid': (vehicle.invalid && vehicle.touched) }">
           </div>
 
         </nb-card-body>

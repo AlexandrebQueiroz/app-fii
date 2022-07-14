@@ -1,0 +1,49 @@
+
+ <nb-card status="primary">
+  <nb-card-header class="text-center">
+    Consulta de DF-e
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="form-control-group">
+      <label class="label">Chave de acesso:</label>
+      <input
+        nbInput
+        fullWidth
+        placeholder="Chave de acesso"
+        fieldSize="large"
+        autofocus>
+    </div>
+  </nb-card-body>
+
+  <nb-card-footer>
+    <div class="row">
+      <div class="col-6">
+        <button
+          nbButton
+          fullWidth
+          size="tiny"
+          status="primary"
+          size="large">
+          Consultar
+        </button>
+      </div>
+
+      <div class="col-6">
+        <button
+          nbButton
+          fullWidth
+          size="tiny"
+          status="primary"
+          size="large">
+          Limpar
+        </button>
+      </div>
+
+    </div>
+  </nb-card-footer>
+</nb-card>
+
+<ngx-events-item></ngx-events-item>
+
+<ngx-cte-data></ngx-cte-data>

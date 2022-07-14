@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
-import { OccurrenceService } from './occurrence.service';
+import { CteService } from './cte.service';
 
 @Component({
-  selector: 'ngx-occurrence',
-  templateUrl: `./occurrence.component.html`,
+  selector: 'ngx-cte',
+  templateUrl: `./cte.component.html`,
 })
-export class OccurrenceComponent implements OnInit{
+export class CteComponent implements OnInit{
 
   public form: FormGroup;
   public submitted: boolean = false;
@@ -16,7 +16,7 @@ export class OccurrenceComponent implements OnInit{
 
   constructor(
     public fb: FormBuilder,
-    public service: OccurrenceService,
+    public service: CteService,
     public toastrService: NbToastrService,
     public router: Router,
     ) {
@@ -37,11 +37,11 @@ export class OccurrenceComponent implements OnInit{
     this.service.save(this.form.value).subscribe(
       () => {
         this.loading = false;
-        this.toastrService.success('Concluido','Concluido com Sucesso')
+        this.toastrService.success('Exemplo','Exemplo de mensagem')
         this.router.navigate([ './pages/operation/alert' ]);
       },
       () => {
-        this.toastrService.danger('Erro','Não foi possivel comunicar com o servidor')
+        this.toastrService.danger('Exemplo','Exemplo de mensagem')
         this.loading = false;
       },
     );
@@ -59,11 +59,7 @@ export class OccurrenceComponent implements OnInit{
 
       direction: new FormControl(
         null, [
-        Validators.required,//'/[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/'
-      ]),
-
-      vehicle: new FormControl(
-        null, [
+        Validators.required,
       ]),
 
     });
@@ -89,10 +85,6 @@ export class OccurrenceComponent implements OnInit{
 
   public get direction() {
     return this.form.get('direction');
-  }
-
-  public get vehicle() {
-    return this.form.get('vehicle');
   }
 
 }

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
-import { OccurrenceService } from './occurrence.service';
+import { OversightService } from './oversight.service';
 
 @Component({
-  selector: 'ngx-occurrence',
-  templateUrl: `./occurrence.component.html`,
+  selector: 'ngx-oversight',
+  templateUrl: `./oversight.component.html`,
 })
-export class OccurrenceComponent implements OnInit{
+export class OversightComponent implements OnInit{
 
   public form: FormGroup;
   public submitted: boolean = false;
@@ -16,7 +16,7 @@ export class OccurrenceComponent implements OnInit{
 
   constructor(
     public fb: FormBuilder,
-    public service: OccurrenceService,
+    public service: OversightService,
     public toastrService: NbToastrService,
     public router: Router,
     ) {

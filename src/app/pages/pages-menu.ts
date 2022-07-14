@@ -1,38 +1,38 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
-  {
-    title: 'Operações',
-    icon: 'layout-outline',
-    children: [
-      {
-        title: 'Alertas',
-        link: '/pages/operation/alert',
-      },
-      {
-        title: 'Ocorrências',
-        link: '/pages/operation/occurrence',
-      },
-      {
-        title: 'Consultar MDF-e',
-        link: '/pages/operation/seachmdfe',
-      },
-      {
-        title: 'Resultado da fiscalização',
-        link: '/pages/layout/infinite-list',
-      },
+    {
+      title: 'Alertas',
+      link: '/pages/operation/alert',
+    },
+    {
+      title: 'Ocorrências',
+      link: '/pages/operation/occurrence',
+    },
+    {
+      title: 'Resultado da fiscalização',
+      link: '/pages/operation/oversight',
+    },
+    {
+      title: 'Consultar CT-e',
+      link: '/pages/operation/cte',
+    },
+    {
+      title: 'Resultado da fiscalização',
+      link: '/pages/layout/infinite-list',
+    },
 
-      {
-        title: 'Consultar CT-3',
-        link: '/pages/layout/tabs',
-      },
-      {
-        title: 'Blacklist',
-        link: '/pages/layout/tabs',
-      },
-    ],
-  },
+    {
+      title: 'Consultar CT-3',
+      link: '/pages/layout/tabs',
+    },
+    {
+      title: 'Blacklist',
+      link: '/pages/layout/tabs',
+    },
 
+
+  /*
   {
     title: 'E-commerce',
     icon: 'shopping-cart-outline',
@@ -264,4 +264,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  */
 ];
