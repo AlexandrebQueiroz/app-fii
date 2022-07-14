@@ -1,0 +1,183 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate [nbSpinner]="loading">
+
+  <div class="row">
+    <div class="col-md-6 offset-md-2 col-12">
+
+      <nb-card>
+
+        <nb-card-header class="text-center">
+          Registrar Passagem
+        </nb-card-header>
+
+      </nb-card>
+
+        <nb-card>
+          <nb-card-body>
+            <div class="row">
+              <nb-tabset fullWidth>
+                <nb-tab [tabIcon]="bookIcon">
+
+                  <div class="row text-center">
+                    <h6>Dados da Passagem</h6>
+                  </div>
+
+                  <div class="row">
+                    <label class="label">Unidade Fiscal*:</label>
+                    <nb-select
+                      *ngIf="states"
+                      fullWidth
+                      class="form-group"
+                      placeholder="Selecione"
+                      [status]='getStatus(uf)'
+                      [formControl]="uf"
+                      [ngClass]="{
+                        'is-valid': (uf.valid && uf.touched),
+                        'is-invalid': (uf.invalid && uf.touched) }"
+                      >
+                      <nb-option *ngFor="let state of states" [value]='state.name'>{{state.initial}}</nb-option>
+                    </nb-select>
+
+
+                    <label class="label">Sentido da Via*:</label>
+                    <nb-select
+                      *ngIf="states"
+                      fullWidth
+                      class="form-group"
+                      placeholder="Selecione"
+                      [status]='getStatus(uf)'
+                      [formControl]="uf"
+                      [ngClass]="{
+                        'is-valid': (uf.valid && uf.touched),
+                        'is-invalid': (uf.invalid && uf.touched) }"
+                      >
+                      <nb-option *ngFor="let state of states" [value]='state.name'>{{state.initial}}</nb-option>
+                    </nb-select>
+
+
+                    <label class="label">UF de destino:</label>
+                    <nb-select
+                      *ngIf="states"
+                      fullWidth
+                      class="form-group"
+                      placeholder="Selecione"
+                      [status]='getStatus(uf)'
+                      [formControl]="uf"
+                      [ngClass]="{
+                        'is-valid': (uf.valid && uf.touched),
+                        'is-invalid': (uf.invalid && uf.touched) }"
+                      >
+                      <nb-option *ngFor="let state of states" [value]='state.name'>{{state.initial}}</nb-option>
+                    </nb-select>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <label class="label">Retorno?:</label>
+                      </div>
+
+                      <div class="col-12">
+                        <nb-radio-group
+                        id="regress"
+                        fullWidth
+                        title="Retorno"
+                        [formControl]="regress"
+                        [status]='getStatus(regress)'
+                        name="reactive-forms-group"
+                        [ngClass]="{
+                          'is-valid': (regress.valid && regress.touched),
+                          'is-invalid': (regress.invalid && regress.touched) }"
+                        >
+                        <nb-radio value="1">Sim</nb-radio>
+                        <nb-radio value="2">Não</nb-radio>
+
+                      </nb-radio-group>
+                      </div>
+                    </div>
+                  </div>
+                </nb-tab>
+
+                <nb-tab [tabIcon]="carIcon">
+                  <div class="row text-center">
+                    <h6>Dados do Transporte</h6>
+                  </div>
+
+                  <div class="row form-group">
+
+                    <label for="plate" class="label">Placa do Veiculo*:</label>
+                    <input
+                      id="plate"
+                      type="text"
+                      [status]='getStatus(plate)'
+                      formControlName="plate"
+                      nbInput
+                      class="form-group"
+                      fullWidth
+                      placeholder="Placa do veiculos"
+                      [ngClass]="{
+                        'is-valid': (plate.valid && plate.touched),
+                        'is-invalid': (plate.invalid && plate.touched) }"
+                    >
+
+                    <label class="label">UF Veiculos*:</label>
+                    <nb-select
+                    *ngIf="states"
+                    fullWidth
+                    class="form-group"
+                    placeholder="Selecione"
+                    [status]='getStatus(uf)'
+                    [formControl]="uf"
+                    [ngClass]="{
+                      'is-valid': (uf.valid && uf.touched),
+                      'is-invalid': (uf.invalid && uf.touched) }"
+                      >
+                      <nb-option *ngFor="let state of states" [value]='state.name'>{{state.initial}}</nb-option>
+                    </nb-select>
+
+                    <label class="label">Placa Carreta:</label>
+                    <input
+                      type="text"
+                      [status]='getStatus(plate)'
+                      formControlName="plate"
+                      nbInput
+                      class="form-group"
+                      fullWidth
+                      placeholder="Placa do veiculos"
+                      [ngClass]="{
+                        'is-valid': (plate.valid && plate.touched),
+                        'is-invalid': (plate.invalid && plate.touched) }"
+                    >
+
+                    <label class="label">Observações:</label>
+                    <textarea
+                      type="text"
+                      [status]='getStatus(plate)'
+                      formControlName="plate"
+                      nbInput
+                      class="form-group"
+                      fullWidth
+                      placeholder="Observações"
+                      [ngClass]="{
+                        'is-valid': (plate.valid && plate.touched),
+                        'is-invalid': (plate.invalid && plate.touched) }"
+                    >
+                    </textarea>
+
+
+                  </div>
+                </nb-tab>
+
+              </nb-tabset>
+            </div>
+          </nb-card-body>
+        </nb-card>
+
+      <button
+        nbButton
+        fullWidth
+        status="primary"
+        size="large">
+        Registrar Passagem
+      </button>
+
+    </div>
+  </div>
+</form>

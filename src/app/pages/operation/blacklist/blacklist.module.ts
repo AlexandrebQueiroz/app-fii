@@ -11,7 +11,6 @@ import { BlacklistComponent, BlacklistRoutingModule, BlacklistService } from './
     NbCardModule,
     NbInputModule,
     NbButtonModule,
-    NbSelectModule,
     ReactiveFormsModule,
     NbSpinnerModule,
     CommonModule,

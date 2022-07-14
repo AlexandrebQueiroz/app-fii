@@ -31,6 +31,11 @@ const routes: Routes = [{
       loadChildren: () => import('./blacklist/blacklist.module')
         .then(m => m.BlacklistModule),
     },
+    {
+      path: 'register-pass',
+      loadChildren: () => import('./register-pass/register-pass.module')
+        .then(m => m.RegisterPassModule),
+    },
   ],
 }];
 

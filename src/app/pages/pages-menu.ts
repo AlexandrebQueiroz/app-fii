@@ -21,6 +21,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
       title: 'Blacklist',
       link: '/pages/operation/blacklist',
     },
+    {
+      title: 'Registrar Passagem',
+      link: '/pages/operation/register-pass',
+    },
     /*
     {
       title: 'Resultado da fiscalização',

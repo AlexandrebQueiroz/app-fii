@@ -1,8 +1,12 @@
+<nb-card>
+
+  <nb-card-body class="text-center">
+    Consulta de DF-e
+  </nb-card-body>
+
+</nb-card>
 
  <nb-card status="primary">
-  <nb-card-header class="text-center">
-    Consulta de DF-e
-  </nb-card-header>
 
   <nb-card-body>
     <div class="form-control-group">
@@ -24,7 +28,9 @@
           fullWidth
           size="tiny"
           status="primary"
-          size="large">
+          size="large"
+          (click)="seaching = true"
+          >
           Consultar
         </button>
       </div>
@@ -35,7 +41,9 @@
           fullWidth
           size="tiny"
           status="primary"
-          size="large">
+          size="large"
+          (click)="seaching = false"
+          >
           Limpar
         </button>
       </div>
@@ -44,6 +52,6 @@
   </nb-card-footer>
 </nb-card>
 
-<ngx-events-item></ngx-events-item>
+<ngx-events-item *ngIf="seaching"></ngx-events-item>
 
-<ngx-cte-data></ngx-cte-data>
+<ngx-cte-data *ngIf="seaching"></ngx-cte-data>

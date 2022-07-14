@@ -70,8 +70,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       );
 
-    this.menuService.onItemClick().subscribe(
-      () => {
+    this.menuService.onItemClick().subscribe(() => {
         if(this.hideMenuOnClick){
           this.sidebarService.collapse('menu-sidebar')
         }

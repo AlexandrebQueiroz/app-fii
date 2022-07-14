@@ -13,6 +13,7 @@ export class CteComponent implements OnInit{
   public form: FormGroup;
   public submitted: boolean = false;
   public loading: boolean = false;
+  public seaching: boolean = false;
 
   constructor(
     public fb: FormBuilder,
