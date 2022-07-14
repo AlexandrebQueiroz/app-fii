@@ -1,0 +1,97 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate [nbSpinner]="loading">
+
+  <div class="row">
+    <div class="col-md-6 offset-md-2 col-12">
+
+      <nb-card>
+
+        <nb-card-header class="text-center">
+          Blacklist
+        </nb-card-header>
+
+        <nb-card-body>
+
+          <div class="row form-group">
+            <label for="placa" class="label">Adicionar à Blacklist*:</label>
+
+            <nb-select
+              fullWidth
+              placeholder="Selecione"
+              [status]='getStatus(personType)'
+              [formControl]="personType"
+              [ngClass]="{
+                'is-valid': (personType.valid && personType.touched),
+                'is-invalid': (personType.invalid && personType.touched) }"
+              >
+              <nb-option value="1">Pessoa Jurídica</nb-option>
+              <nb-option value="2">Pessoa Física</nb-option>
+            </nb-select>
+          </div>
+
+          <div class="row form-group">
+            <label for="ie" class="label">EI:</label>
+            <input
+              id="ie"
+              type="text"
+              [status]='getStatus(ie)'
+              formControlName="ie"
+              nbInput
+              class="form-control"
+              fullWidth
+              placeholder="IE"
+              [ngClass]="{'is-valid': (ie.valid && ie.touched), 'is-invalid': (ie.invalid && ie.touched) }"
+            >
+          </div>
+
+          <div class="row form-group">
+            <label for="cnpj" class="label">CNPJ*:</label>
+            <input
+              id="cnpj"
+              type="text"
+              [status]='getStatus(cnpj)'
+              formControlName="cnpj"
+              nbInput
+              class="form-control"
+              fullWidth
+              placeholder="CNPJ"
+              [ngClass]="{'is-valid': (cnpj.valid && cnpj.touched), 'is-invalid': (cnpj.invalid && cnpj.touched) }"
+            >
+          </div>
+
+          <div class="row form-group">
+            <div class="container">
+              <div class="row">
+                <label for="cnpj" class="label">Motivos*:</label>
+              </div>
+
+              <div class="row">
+                <nb-radio-group
+                  id="reason"
+                  fullWidth
+                  [formControl]="reason"
+                  [status]='getStatus(reason)'
+                  name="reactive-forms-group"
+                  [ngClass]="{
+                    'is-valid': (reason.valid && reason.touched),
+                    'is-invalid': (reason.invalid && reason.touched) }"
+                  >
+                  <nb-radio value="1">NOTA FISCAL CANCELADA</nb-radio>
+                  <nb-radio value="2">DESVIO DE ROTA</nb-radio>
+                </nb-radio-group>
+              </div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+
+      <button
+        nbButton
+        fullWidth
+        status="primary"
+        size="large">
+        Concluir
+      </button>
+
+    </div>
+  </div>
+</form>

@@ -21,13 +21,16 @@ const routes: Routes = [{
       loadChildren: () => import('./oversight/oversight.module')
         .then(m => m.OversightModule),
     },
-
     {
       path: 'cte',
       loadChildren: () => import('./cte/cte.module')
         .then(m => m.CteModule),
     },
-
+    {
+      path: 'blacklist',
+      loadChildren: () => import('./blacklist/blacklist.module')
+        .then(m => m.BlacklistModule),
+    },
   ],
 }];
 

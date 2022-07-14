@@ -14,23 +14,26 @@ export const MENU_ITEMS: NbMenuItem[] = [
       link: '/pages/operation/oversight',
     },
     {
-      title: 'Consultar CT-e',
+      title: 'Consultar Documento fiscal',
       link: '/pages/operation/cte',
     },
+    {
+      title: 'Blacklist',
+      link: '/pages/operation/blacklist',
+    },
+    /*
     {
       title: 'Resultado da fiscalização',
       link: '/pages/layout/infinite-list',
     },
+    */
 
+    /*
     {
-      title: 'Consultar CT-3',
+      title: 'Registrar Passagem',
       link: '/pages/layout/tabs',
     },
-    {
-      title: 'Blacklist',
-      link: '/pages/layout/tabs',
-    },
-
+    /*
 
   /*
   {
