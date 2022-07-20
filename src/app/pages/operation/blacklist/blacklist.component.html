@@ -67,19 +67,27 @@
               </div>
 
               <div class="row">
-                <nb-radio-group
-                  id="reason"
-                  fullWidth
-                  [formControl]="reason"
-                  [status]='getStatus(reason)'
-                  name="reactive-forms-group"
+
+                <nb-checkbox
+                  [formControl]="reasonCanceled"
+                  [status]='getStatus(reasonCanceled)'
                   [ngClass]="{
-                    'is-valid': (reason.valid && reason.touched),
-                    'is-invalid': (reason.invalid && reason.touched) }"
+                    'is-valid': (reasonCanceled.valid && reasonCanceled.touched),
+                    'is-invalid': (reasonCanceled.invalid && reasonCanceled.touched) }"
                   >
-                  <nb-radio value="1">NOTA FISCAL CANCELADA</nb-radio>
-                  <nb-radio value="2">DESVIO DE ROTA</nb-radio>
-                </nb-radio-group>
+                  NOTA FISCAL CANCELADA
+                </nb-checkbox>
+
+                <nb-checkbox
+                  [formControl]="reasonOutOf"
+                  [status]='getStatus(reasonOutOf)'
+                  [ngClass]="{
+                    'is-valid': (reasonOutOf.valid && reasonOutOf.touched),
+                    'is-invalid': (reasonOutOf.invalid && reasonOutOf.touched) }">
+
+                  DESVIO DE ROTA
+                </nb-checkbox>
+
               </div>
             </div>
           </div>

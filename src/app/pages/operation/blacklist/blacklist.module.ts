@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NbCardModule, NbInputModule, NbButtonModule, NbSelectModule, NbSpinnerModule, NbRadioModule } from '@nebular/theme';
+import { NbCardModule, NbInputModule, NbButtonModule, NbSelectModule, NbSpinnerModule, NbRadioModule, NbToggleModule, NbCheckboxModule } from '@nebular/theme';
 import { BlacklistComponent, BlacklistRoutingModule, BlacklistService } from './_index';
 
 @NgModule({
@@ -16,6 +16,8 @@ import { BlacklistComponent, BlacklistRoutingModule, BlacklistService } from './
     CommonModule,
     NbSelectModule,
     NbRadioModule,
+    NbToggleModule,
+    NbCheckboxModule,
   ],
 
   declarations:

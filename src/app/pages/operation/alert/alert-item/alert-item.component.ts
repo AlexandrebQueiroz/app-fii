@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Alerts } from '../../../../@core/data/alerts';
 
 @Component({
   selector: 'ngx-alert-item',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: `./alert-item.component.html`,
 })
 export class AlertItemComponent {
+
+  @Input()
+  public alert: Alerts;
+
 }

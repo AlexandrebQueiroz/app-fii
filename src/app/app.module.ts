@@ -11,12 +11,15 @@ import {
   NbWindowModule
 } from '@nebular/theme';
 import { CoreModule } from './@core/core.module';
+import { fakeBackendProvider } from './@theme/components/service/fakebackend.service';
 import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -31,7 +34,12 @@ import { AppComponent } from './app.component';
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent
+  ],
+  providers:[
+    fakeBackendProvider
+  ]
 })
 export class AppModule {
 }

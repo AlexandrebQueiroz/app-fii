@@ -38,7 +38,7 @@ export class OccurrenceComponent implements OnInit{
       () => {
         this.loading = false;
         this.toastrService.success('Concluido','Concluido com Sucesso')
-        this.router.navigate([ './pages/operation/alert' ]);
+        this.reset();
       },
       () => {
         this.toastrService.danger('Erro','Não foi possivel comunicar com o servidor')
@@ -46,6 +46,11 @@ export class OccurrenceComponent implements OnInit{
       },
     );
 
+  }
+
+  public reset(){
+    this.submitted = false;
+    this.form.reset();
   }
 
   public createForm() {

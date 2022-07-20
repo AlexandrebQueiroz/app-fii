@@ -22,8 +22,5 @@ export class GmapsComponent {
       location: {lat: -13.0131799, lng: -38.4942567}
     }
 
-
-    //13.0131799,-38.4942567,15.79z
-
   ]
 }

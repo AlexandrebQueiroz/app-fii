@@ -10,10 +10,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       link: '/pages/operation/occurrence',
     },
     {
-      title: 'Resultado da fiscalização',
-      link: '/pages/operation/oversight',
-    },
-    {
       title: 'Consultar Documento fiscal',
       link: '/pages/operation/cte',
     },
@@ -25,7 +21,31 @@ export const MENU_ITEMS: NbMenuItem[] = [
       title: 'Registrar Passagem',
       link: '/pages/operation/register-pass',
     },
+    {
+      title: 'Google Maps',
+      link: '/pages/maps/gmaps',
+    },
+
     /*
+    {
+      title: 'Maps',
+      icon: 'map-outline',
+      children: [
+
+        {
+          title: 'Leaflet Maps',
+          link: '/pages/maps/leaflet',
+        },
+        {
+          title: 'Bubble Maps',
+          link: '/pages/maps/bubble',
+        },
+        {
+          title: 'Search Maps',
+          link: '/pages/maps/searchmap',
+        },
+      ],
+    },
     {
       title: 'Resultado da fiscalização',
       link: '/pages/layout/infinite-list',
@@ -183,28 +203,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-  {
-    title: 'Maps',
-    icon: 'map-outline',
-    children: [
-      {
-        title: 'Google Maps',
-        link: '/pages/maps/gmaps',
-      },
-      {
-        title: 'Leaflet Maps',
-        link: '/pages/maps/leaflet',
-      },
-      {
-        title: 'Bubble Maps',
-        link: '/pages/maps/bubble',
-      },
-      {
-        title: 'Search Maps',
-        link: '/pages/maps/searchmap',
-      },
-    ],
-  },
+
   {
     title: 'Charts',
     icon: 'pie-chart-outline',

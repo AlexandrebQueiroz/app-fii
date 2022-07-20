@@ -39,7 +39,7 @@ export class BlacklistComponent implements OnInit{
       () => {
         this.loading = false;
         this.toastrService.success('Concluido','Concluido com Sucesso')
-        this.router.navigate([ './pages/operation/alert' ]);
+        this.reset();
       },
       () => {
         this.toastrService.danger('Erro','Não foi possivel comunicar com o servidor')
@@ -47,6 +47,12 @@ export class BlacklistComponent implements OnInit{
       },
     );
 
+  }
+
+
+  public reset(){
+    this.submitted = false;
+    this.form.reset();
   }
 
   public createForm() {
@@ -67,9 +73,12 @@ export class BlacklistComponent implements OnInit{
         Validators.required,
       ]),
 
-      reason: new FormControl(
+      reasonOutOf: new FormControl(
         null, [
-        Validators.required,
+      ]),
+
+      reasonCanceled: new FormControl(
+        null, [
       ]),
 
     });
@@ -101,8 +110,12 @@ export class BlacklistComponent implements OnInit{
     return this.form.get('cnpj');
   }
 
-  public get reason() {
-    return this.form.get('reason');
+  public get reasonOutOf() {
+    return this.form.get('reasonOutOf');
+  }
+
+  public get reasonCanceled() {
+    return this.form.get('reasonCanceled');
   }
 
 }

@@ -1,10 +1,12 @@
 @import '../../../../@theme/styles/themes';
 
-.alert-color-success {
-  background-color: nb-theme(background-basic-color-2);
+.item-danger {
+
+  color: white;
+  background-color: nb-theme(color-danger-500);
 }
 
-.alert-color-danger {
-  background-color: nb-theme(background-basic-color-2);
+.item-primary {
+    color: white;
+    background-color: nb-theme(color-primary-default);
 }
-

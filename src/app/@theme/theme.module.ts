@@ -38,6 +38,7 @@ import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
+import { CurrentTimePipe } from './pipes/current-time.pipe';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -65,6 +66,7 @@ const COMPONENTS = [
 const PIPES = [
   CapitalizePipe,
   PluralPipe,
+  CurrentTimePipe,
   RoundPipe,
   TimingPipe,
   NumberWithCommasPipe,
