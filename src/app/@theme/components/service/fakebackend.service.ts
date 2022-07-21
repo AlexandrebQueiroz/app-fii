@@ -25,6 +25,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return this.ok()
         }
 
+        case url.endsWith('/register-pass') && method === 'POST':{
+          return this.ok()
+        }
+
         case url.endsWith('/alert') && method === 'GET':
           var response = new Subject<HttpResponse<any>>();
           this.http.get(this.path).subscribe(

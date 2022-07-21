@@ -14,8 +14,9 @@
         <nb-card>
           <nb-card-body>
             <div class="row">
-              <nb-tabset fullWidth>
-                <nb-tab [tabIcon]="bookIcon">
+              <nb-tabset fullWidth #tabset>
+
+                <nb-tab [tabIcon]="bookIcon" tabTitle="Dados da Passagem" responsive #tabOne>
 
                   <div class="row text-center">
                     <h6>Dados da Passagem</h6>
@@ -44,11 +45,11 @@
                       fullWidth
                       class="form-group"
                       placeholder="Selecione"
-                      [status]='getStatus(uf)'
-                      [formControl]="uf"
+                      [status]='getStatus(direction)'
+                      [formControl]="direction"
                       [ngClass]="{
-                        'is-valid': (uf.valid && uf.touched),
-                        'is-invalid': (uf.invalid && uf.touched) }"
+                        'is-valid': (direction.valid && direction.touched),
+                        'is-invalid': (direction.invalid && direction.touched) }"
                       >
                       <nb-option *ngFor="let state of states" [value]='state.name'>{{state.initial}}</nb-option>
                     </nb-select>
@@ -60,11 +61,11 @@
                       fullWidth
                       class="form-group"
                       placeholder="Selecione"
-                      [status]='getStatus(uf)'
-                      [formControl]="uf"
+                      [status]='getStatus(ufDestiny)'
+                      [formControl]="ufDestiny"
                       [ngClass]="{
-                        'is-valid': (uf.valid && uf.touched),
-                        'is-invalid': (uf.invalid && uf.touched) }"
+                        'is-valid': (ufDestiny.valid && ufDestiny.touched),
+                        'is-invalid': (ufDestiny.invalid && ufDestiny.touched) }"
                       >
                       <nb-option *ngFor="let state of states" [value]='state.name'>{{state.initial}}</nb-option>
                     </nb-select>
@@ -95,7 +96,7 @@
                   </div>
                 </nb-tab>
 
-                <nb-tab [tabIcon]="carIcon">
+                <nb-tab [tabIcon]="carIcon" tabTitle="Dados do Transporte" responsive #tabTwo>
                   <div class="row text-center">
                     <h6>Dados do Transporte</h6>
                   </div>
@@ -119,48 +120,47 @@
 
                     <label class="label">UF Veiculos*:</label>
                     <nb-select
-                    *ngIf="states"
-                    fullWidth
-                    class="form-group"
-                    placeholder="Selecione"
-                    [status]='getStatus(uf)'
-                    [formControl]="uf"
-                    [ngClass]="{
-                      'is-valid': (uf.valid && uf.touched),
-                      'is-invalid': (uf.invalid && uf.touched) }"
-                      >
-                      <nb-option *ngFor="let state of states" [value]='state.name'>{{state.initial}}</nb-option>
-                    </nb-select>
+                      *ngIf="states"
+                      fullWidth
+                      class="form-group"
+                      placeholder="Selecione"
+                      [status]='getStatus(ufCar)'
+                      [formControl]="ufCar"
+                      [ngClass]="{
+                        'is-valid': (ufCar.valid && ufCar.touched),
+                        'is-invalid': (ufCar.invalid && ufCar.touched) }"
+                        >
+                        <nb-option *ngFor="let state of states" [value]='state.name'>{{state.initial}}</nb-option>
+                      </nb-select>
 
                     <label class="label">Placa Carreta:</label>
                     <input
                       type="text"
-                      [status]='getStatus(plate)'
-                      formControlName="plate"
+                      [status]='getStatus(ufCompanion)'
+                      formControlName="ufCompanion"
                       nbInput
                       class="form-group"
                       fullWidth
                       placeholder="Placa do veiculos"
                       [ngClass]="{
-                        'is-valid': (plate.valid && plate.touched),
-                        'is-invalid': (plate.invalid && plate.touched) }"
+                        'is-valid': (ufCompanion.valid && ufCompanion.touched),
+                        'is-invalid': (ufCompanion.invalid && ufCompanion.touched) }"
                     >
 
                     <label class="label">Observações:</label>
                     <textarea
                       type="text"
-                      [status]='getStatus(plate)'
-                      formControlName="plate"
+                      [status]='getStatus(observation)'
+                      formControlName="observation"
                       nbInput
                       class="form-group"
                       fullWidth
                       placeholder="Observações"
                       [ngClass]="{
-                        'is-valid': (plate.valid && plate.touched),
-                        'is-invalid': (plate.invalid && plate.touched) }"
+                        'is-valid': (observation.valid && observation.touched),
+                        'is-invalid': (observation.invalid && observation.touched) }"
                     >
                     </textarea>
-
 
                   </div>
                 </nb-tab>

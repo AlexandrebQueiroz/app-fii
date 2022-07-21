@@ -1,26 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Geo } from '../../../@core/data/alerts';
 
 @Component({
   selector: 'ngx-gmaps',
   styleUrls: ['./gmaps.component.scss'],
   templateUrl: './gmaps.component.html',
 })
-export class GmapsComponent {
-  readonly position = { lat: -13.0107167, lng: -38.5329841 };
+export class GmapsComponent implements OnInit{
 
-  readonly points = [
-    {
-      label: "Farol da barra",
-      location: {lat: -13.0113584, lng: -38.5326023}
-    },
-    {
-      label: "Morro do cristo",
-      location: {lat: -13.0107261, lng: -38.5241318}
-    },
-    {
-      label: "Hotel hipis",
-      location: {lat: -13.0131799, lng: -38.4942567}
+  private path = '[alert][goto][maps]';
+  public loaded = false;
+  public geo: Geo;
+
+  constructor(
+    public router: Router,
+    public activeRouter: ActivatedRoute,
+  ){
+
+  }
+
+  ngOnInit(): void {
+    this.loadForm()
+  }
+
+  public loadForm() {
+    if (sessionStorage.getItem(this.path) === null) {
+      this.voltar();
     }
 
-  ]
+    this.geo = JSON.parse( sessionStorage.getItem(this.path));
+    sessionStorage.removeItem(this.path);
+    this.loaded = true;
+  }
+
+  public voltar(){
+    this.router.navigate([ '../operation/alert' ], { relativeTo: this.activeRouter.parent });
+  }
 }

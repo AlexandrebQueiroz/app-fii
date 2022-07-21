@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NbIconConfig, NbToastrService } from '@nebular/theme';
+import { NbIconConfig, NbTabComponent, NbTabsetComponent, NbToastrService } from '@nebular/theme';
 import { State } from '../../../@core/data/state';
 import { RegisterPassService } from './register-pass.service';
 
@@ -15,6 +15,15 @@ import { RegisterPassService } from './register-pass.service';
   }`],
 })
 export class RegisterpassComponent implements OnInit{
+
+  @ViewChild("tabset")
+  public tabs: NbTabsetComponent;
+
+  @ViewChild("tabOne")
+  public tabOne: NbTabComponent;
+
+  @ViewChild("tabTwo")
+  public tabTwo: NbTabComponent;
 
   public form: FormGroup;
   public submitted: boolean = false;
@@ -42,14 +51,15 @@ export class RegisterpassComponent implements OnInit{
     this.submitted = true;
 
     if (this.form.invalid) {
+      this.validTab();
       return;
     }
     this.loading = true;
     this.service.save(this.form.value).subscribe(
       () => {
         this.loading = false;
-        this.toastrService.success('Concluido','Concluido com Sucesso')
-        this.router.navigate([ './pages/operation/alert' ]);
+        this.toastrService.success('','Concluido com Sucesso')
+        this.limpar();
       },
       () => {
         this.toastrService.danger('Erro','Não foi possivel comunicar com o servidor')
@@ -57,6 +67,24 @@ export class RegisterpassComponent implements OnInit{
       },
     );
 
+  }
+
+  public validTab(): void {
+
+    if(
+      this.uf.valid &&
+      this.direction.valid &&
+      this.ufDestiny.valid &&
+      this.regress.valid
+      ){
+        this.tabs.selectTab(this.tabTwo);
+      }
+  }
+
+  public limpar(){
+    this.submitted = false;
+    this.tabs.selectTab(this.tabOne);
+    this.form.reset();
   }
 
   public createForm() {
@@ -68,14 +96,35 @@ export class RegisterpassComponent implements OnInit{
         Validators.required,
       ]),
 
-      regress: new FormControl(
+      direction: new FormControl(
         null, [
         Validators.required,
+      ]),
+
+      ufDestiny: new FormControl(
+        null, [
+      ]),
+
+      regress: new FormControl(
+        null, [
       ]),
 
       plate: new FormControl(
         null, [
         Validators.required,
+      ]),
+
+      ufCar: new FormControl(
+        null, [
+        Validators.required,
+      ]),
+
+      ufCompanion: new FormControl(
+        null, [
+      ]),
+
+      observation: new FormControl(
+        null, [
       ]),
 
     });
@@ -105,12 +154,32 @@ export class RegisterpassComponent implements OnInit{
     return this.form.get('uf');
   }
 
+  public get direction() {
+    return this.form.get('direction');
+  }
+
+  public get ufDestiny() {
+    return this.form.get('ufDestiny');
+  }
+
   public get regress() {
     return this.form.get('regress');
   }
 
   public get plate() {
     return this.form.get('plate');
+  }
+
+  public get ufCar() {
+    return this.form.get('ufCar');
+  }
+
+  public get ufCompanion() {
+    return this.form.get('ufCompanion');
+  }
+
+  public get observation() {
+    return this.form.get('observation');
   }
 
 }

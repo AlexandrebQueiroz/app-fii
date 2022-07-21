@@ -1,15 +1,32 @@
-
 <nb-card size="giant">
 
+  <nb-card-header>
+    Localização
+  </nb-card-header>
+
   <nb-card-body>
-    <google-map [center]="position" [zoom]="8" width="100%" height="36.5625rem">
+    <google-map
+      *ngIf="loaded"
+      [center]="{lat: geo.center.lat, lng: geo.center.long}"
+      [zoom]="12" width="100%" height="36.5625rem">
+
       <map-marker
-        *ngFor="let point of points"
+        *ngFor="let point of geo.points"
         [label]="point.label"
         [position]="point.location"
         >
       </map-marker>
+
     </google-map>
   </nb-card-body>
-
+  <nb-card-footer>
+    <button
+      nbButton
+      fullWidth
+      (click)="voltar()"
+      status="basic">
+      Voltar
+    </button>
+  </nb-card-footer>
 </nb-card>
+

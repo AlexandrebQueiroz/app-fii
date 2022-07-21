@@ -1,11 +1,9 @@
-import { FlexibleConnectedPositionStrategyOrigin } from "@angular/cdk/overlay";
 
 export interface Alerts {
 
   level?:string;
   stage?:string;
   createdAt?: Date;
-
 
   veicle?: {
     plate?: string,
@@ -36,25 +34,27 @@ export interface Alerts {
     key?: string
   },
 
-  geo?:{
-    center:{
-      lat:  number,
-      long: number
-    },
-    points:[
-      {
-        label: string
-        location: {lat: number, lng: number}
-      },
-      {
-        label: string,
-        location: {lat: number, lng: number}
-      },
-      {
-        label:string,
-        location: {lat: number, lng: number}
-      }
-    ]
-  }
+  geo: Geo[]
+}
 
+
+export interface Geo {
+  center:{
+    lat:  number,
+    lng: number
+  },
+  points:[
+    {
+      label: string
+      location: {lat: number, lng: number}
+    },
+    {
+      label: string,
+      location: {lat: number, lng: number}
+    },
+    {
+      label:string,
+      location: {lat: number, lng: number}
+    }
+  ]
 }

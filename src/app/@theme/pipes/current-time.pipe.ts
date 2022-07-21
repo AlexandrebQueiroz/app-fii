@@ -29,7 +29,7 @@ export class CurrentTimePipe implements PipeTransform {
       return `${day + ' dias atrás'}`
     }
 
-    return `${hours + ' horas'}`
+    return `${hours + ' hora'}`
   }
 }
 

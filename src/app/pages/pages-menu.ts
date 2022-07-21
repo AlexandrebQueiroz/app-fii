@@ -21,12 +21,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
       title: 'Registrar Passagem',
       link: '/pages/operation/register-pass',
     },
-    {
+
+
+    /*
+     {
       title: 'Google Maps',
       link: '/pages/maps/gmaps',
     },
-
-    /*
     {
       title: 'Maps',
       icon: 'map-outline',

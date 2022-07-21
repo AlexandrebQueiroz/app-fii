@@ -1,4 +1,4 @@
-<nb-card>
+<nb-card *ngIf="loadead">
 
   <nb-card-body class="text-center">
     Consulta de DF-e
@@ -16,6 +16,7 @@
         fullWidth
         placeholder="Chave de acesso"
         fieldSize="large"
+        [formControl]="value"
         autofocus>
     </div>
   </nb-card-body>
@@ -52,6 +53,6 @@
   </nb-card-footer>
 </nb-card>
 
-<ngx-events-item *ngIf="seaching"></ngx-events-item>
+<ngx-events-item *ngIf="seaching && loadead"></ngx-events-item>
 
-<ngx-cte-data *ngIf="seaching"></ngx-cte-data>
+<ngx-cte-data *ngIf="seaching && loadead"></ngx-cte-data>

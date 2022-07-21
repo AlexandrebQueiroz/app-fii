@@ -1,91 +1,59 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { NbToastrService } from '@nebular/theme';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CteService } from './cte.service';
 
 @Component({
   selector: 'ngx-cte',
   templateUrl: `./cte.component.html`,
 })
-export class CteComponent implements OnInit{
+export class CteComponent implements OnInit {
 
-  public form: FormGroup;
-  public submitted: boolean = false;
-  public loading: boolean = false;
+  public loadead: boolean = false;
   public seaching: boolean = false;
+  public path: string = '[alert][goto][dfe]';
+  public data: any;
+  public form: FormGroup;
 
   constructor(
     public fb: FormBuilder,
     public service: CteService,
-    public toastrService: NbToastrService,
     public router: Router,
+    public activeRouter: ActivatedRoute,
     ) {
-
-  }
-
-  ngOnInit(): void {
     this.createForm()
   }
 
-  onSubmit(): void {
-    this.submitted = true;
+  ngOnInit(): void {
+    this.loadForm()
+  }
 
-    if (this.form.invalid) {
-      return;
+  public loadForm() {
+
+    if (sessionStorage.getItem(this.path) !== null) {
+      this.value.setValue(JSON.parse( sessionStorage.getItem(this.path)))
+      sessionStorage.removeItem(this.path);
+      this.loadead = true;
     }
-    this.loading = true;
-    this.service.save(this.form.value).subscribe(
-      () => {
-        this.loading = false;
-        this.toastrService.success('Exemplo','Exemplo de mensagem')
-        this.router.navigate([ './pages/operation/alert' ]);
-      },
-      () => {
-        this.toastrService.danger('Exemplo','Exemplo de mensagem')
-        this.loading = false;
-      },
-    );
-
   }
 
-  public createForm() {
+  public createForm(){
+     this.form = this.fb.group({
 
-    this.form = this.fb.group({
-
-      plate: new FormControl(
+      value: new FormControl(
         null, [
-        Validators.required,
-      ]),
-
-      direction: new FormControl(
-        null, [
-        Validators.required,
-      ]),
-
-    });
+          Validators.required,
+        ]),
+    })
   }
 
-  public getStatus(field: any): string {
-
-    if (!this.submitted ) {
-      return 'basic';
-     }
-
-     if (field.valid) {
-       return 'success';
-     }
-
-     return 'danger';
-
+  public voltar(){
+    this.router.navigate([ '../operation/alert' ], { relativeTo: this.activeRouter.parent });
   }
 
-  public get plate() {
-    return this.form.get('plate');
+  public get value() {
+    return this.form.get('value');
   }
 
-  public get direction() {
-    return this.form.get('direction');
-  }
 
 }
